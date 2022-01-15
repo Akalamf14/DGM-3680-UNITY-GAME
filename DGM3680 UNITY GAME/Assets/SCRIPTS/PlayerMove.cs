@@ -12,9 +12,7 @@ public class PlayerMove : MonoBehaviour
 
    float speed = 5f;
    float rayLength = 1f;
-   public float jumpHeight;
    public int jump;
-   Rigidbody gameCharacter;
    bool isGrounded;
    bool canMove;
 
@@ -23,7 +21,7 @@ public class PlayerMove : MonoBehaviour
        currentDirection = up;
        nextPos = Vector3.forward;
        destination = transform.position;
-       gameCharacter = GetComponent<Rigidbody>();
+    
    }
 
    void OnCollisionStay()
@@ -90,7 +88,6 @@ public class PlayerMove : MonoBehaviour
         {
             nextPos = Vector3.forward * jump;
             currentDirection = up;
-            //gameCharacter.AddForce(new Vector3(0,jumpHeight,0), ForceMode.Impulse);
             canMove = true;
         }
 
@@ -98,7 +95,6 @@ public class PlayerMove : MonoBehaviour
         {
             nextPos = Vector3.back * jump;
             currentDirection = down;
-            //gameCharacter.AddForce(new Vector3(0,jumpHeight,0), ForceMode.Impulse);
             canMove = true;
         }
 
@@ -106,7 +102,6 @@ public class PlayerMove : MonoBehaviour
         {
             nextPos = Vector3.right * jump;
             currentDirection = right;
-            //gameCharacter.AddForce(new Vector3(0,jumpHeight,0), ForceMode.Impulse);
             canMove = true;
         }
 
@@ -114,7 +109,6 @@ public class PlayerMove : MonoBehaviour
         {
             nextPos = Vector3.left * jump;
             currentDirection = left;
-            //gameCharacter.AddForce(new Vector3(0,jumpHeight,0), ForceMode.Impulse);
             canMove = true;
         }
    
