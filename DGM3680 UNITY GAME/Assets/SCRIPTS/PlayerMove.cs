@@ -2,12 +2,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-   Vector3 up = Vector3.zero,
-   right = new Vector3(0, 90, 0),
-   down = new Vector3(0, 180, 0),
-   left = new Vector3(0, 270, 0),
-   currentDirection = Vector3.zero;
-
+   Vector3 up = Vector3.zero, right = new Vector3(0, 90, 0), down = new Vector3(0, 180, 0), left = new Vector3(0, 270, 0), currentDirection = Vector3.zero;
    Vector3 nextPos, destination, direction;
 
    float speed = 5f;
@@ -34,11 +29,10 @@ public class PlayerMove : MonoBehaviour
        if(isGrounded)
        {
            Move();
-       }
-       
-   }
+       }    
+    }
 
-   void Move()
+   public void Move()
    {
        transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
 
@@ -111,10 +105,7 @@ public class PlayerMove : MonoBehaviour
             currentDirection = left;
             canMove = true;
         }
-   
-   
-   
-   }
+    }
 
    bool Valid()
    {
